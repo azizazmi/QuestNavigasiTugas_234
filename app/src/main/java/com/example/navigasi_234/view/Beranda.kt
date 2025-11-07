@@ -50,7 +50,14 @@ fun Beranda(OnSubmitBtnClick:()-> Unit) {
                 modifier = Modifier,
                 fontSize = 22.sp,
                 fontFamily = FontFamily.Monospace,
-                color = Color(0xFF58b4f5))
+                color = Color(0xFF58b4f5)
+            )
+            Text(text = stringResource(id = R.string.NIM),
+                modifier = Modifier,
+                fontSize = 18.sp,
+                fontFamily = FontFamily.Serif,
+                color = Color(0xFF58b4f5)
+            )
         }
 
     }
