@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -72,7 +74,16 @@ fun ListPeserta(
                         fontFamily = FontFamily.Cursive)
                 }
                 Spacer(modifier = Modifier.height(height = 30.dp))
-
+                Button(modifier = Modifier
+                    .padding(10.dp)
+                    .fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(R.color.purple_500)
+                    ),
+                    onClick = onBackToBerandaClick)
+                {
+                    Text(text = "Beranda")
+                }
             }
         }
     }
