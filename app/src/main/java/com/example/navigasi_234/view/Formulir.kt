@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -30,18 +31,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navigasi_234.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FormDataDiri(modifier: Modifier) {
-    var txtNama by remember { mutableStateOf("") }
-    var txtAlamat by remember {mutableStateOf("")}
-    var txtJK by remember {mutableStateOf("")}
-    var txtStatusPernikahan by remember {mutableStateOf("")}
-
-    var nama by remember { mutableStateOf("") }
-    var alamat by remember { mutableStateOf("") }
-    var jk by remember {mutableStateOf("")}
-    var statusP by remember {mutableStateOf("")}
-
+fun FormDataDiri(onBackToBtnClick:()-> Unit) {
     val gender:List<String> = listOf("Laki-laki", "Perempuan")
     val status:List<String> = listOf("Janda", "Lajang", "Duda")
 
@@ -78,16 +70,14 @@ fun FormDataDiri(modifier: Modifier) {
                         fontSize = 20.sp
                     )
                     OutlinedTextField(
-                        value = txtNama,
+                        value = "",
                         singleLine = true,
                         shape = MaterialTheme.shapes.large,
                         modifier = Modifier
                             .padding(all = 10.dp)
                             .fillMaxWidth(),
                         label = { Text(text = "Isian nama lengkap") },
-                        onValueChange = {
-                            txtNama = it
-                        }
+                        onValueChange = { }
                     )
                     Text( modifier = Modifier.padding(
                         top = 10.dp,
@@ -100,14 +90,12 @@ fun FormDataDiri(modifier: Modifier) {
                         gender.forEach { item ->
                             Row(
                                 modifier = Modifier.selectable(
-                                    selected = txtJK == item,
-                                    onClick = { txtJK = item }
+                                    selected = false,
+                                    onClick = {}
                                 ), verticalAlignment = Alignment.CenterVertically) {
                                 RadioButton(
-                                    selected = txtJK == item,
-                                    onClick = {
-                                        txtJK = item
-                                    }
+                                    selected = false,
+                                    onClick = {}
                                 )
                                 Text(text = item)
                             }
@@ -124,14 +112,12 @@ fun FormDataDiri(modifier: Modifier) {
                         status.forEach { item ->
                             Row(
                                 modifier = Modifier.selectable(
-                                    selected = txtStatusPernikahan == item,
-                                    onClick = { txtStatusPernikahan = item }
+                                    selected = false,
+                                    onClick = {}
                                 ), verticalAlignment = Alignment.CenterVertically) {
                                 RadioButton(
-                                    selected = txtStatusPernikahan == item,
-                                    onClick = {
-                                        txtStatusPernikahan = item
-                                    }
+                                    selected = false,
+                                    onClick = {}
                                 )
                                 Text(text = item)
                             }
@@ -144,30 +130,21 @@ fun FormDataDiri(modifier: Modifier) {
                         fontSize = 20.sp
                     )
                     OutlinedTextField(
-                        value = txtAlamat,
+                        value = "",
                         singleLine = true,
                         shape = MaterialTheme.shapes.large,
                         modifier = Modifier
                             .padding(all = 10.dp)
                             .fillMaxWidth(),
                         label = { Text(text = "Alamat") },
-                        onValueChange = {
-                            txtAlamat = it
-                        }
+                        onValueChange = {}
                     )
                     Button(
                         modifier = Modifier
                             .padding(top = 30.dp)
                             .fillMaxWidth(1f)
                             .background(color = colorResource(R.color.purple_500)),
-                        //the button is enabled when the user make a selection
-                        enabled = txtAlamat.isNotEmpty(),
-                        onClick = {
-                            nama=txtNama
-                            jk=txtJK
-                            alamat=txtAlamat
-                            statusP=txtStatusPernikahan
-                        }
+                        onClick = onBackToBtnClick
                     ) {
                         Text(stringResource((R.string.submit)), color = Color.White)
                     }
