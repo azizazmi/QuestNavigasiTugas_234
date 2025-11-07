@@ -45,7 +45,7 @@ fun Beranda(OnSubmitBtnClick:()-> Unit) {
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Serif,
                 fontSize = 40.sp,
-                color = Color(0xFF58b4f5))
+                color = Color(0xFF2663CB))
             Spacer(modifier = Modifier.height(height = 30.dp))
             Image(painter = gambar,
                 contentDescription = null,
@@ -56,23 +56,23 @@ fun Beranda(OnSubmitBtnClick:()-> Unit) {
                 modifier = Modifier,
                 fontSize = 22.sp,
                 fontFamily = FontFamily.Monospace,
-                color = Color(0xFF58b4f5)
+                color = Color(0xFF2663CB)
             )
             Text(text = stringResource(id = R.string.NIM),
                 modifier = Modifier,
                 fontSize = 18.sp,
                 fontFamily = FontFamily.Serif,
-                color = Color(0xFF58b4f5)
+                color = Color(0xFF2663CB)
             )
             Spacer(modifier = Modifier.height(height = 30.dp))
             Button(modifier = Modifier
                 .width(width = 270.dp),
                 onClick = OnSubmitBtnClick,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(R.color.purple_500)
+                    containerColor = Color(0xFF2663CB)
                 )
             ){
-                Text(text = stringResource(R.string.submit),
+                Text(text = stringResource(R.string.list),
                     modifier = Modifier,
                     color = Color.White)
             }
