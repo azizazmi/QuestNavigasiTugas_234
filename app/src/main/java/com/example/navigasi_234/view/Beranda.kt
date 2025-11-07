@@ -58,6 +58,7 @@ fun Beranda(OnSubmitBtnClick:()-> Unit) {
                 fontFamily = FontFamily.Serif,
                 color = Color(0xFF58b4f5)
             )
+            Spacer(modifier = Modifier.height(height = 30.dp))
         }
 
     }
